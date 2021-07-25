@@ -252,13 +252,10 @@ module caseCoverAssembly() {
 				squareNutHolderPos[i][0],
 				squareNutHolderPos[i][1],
 				0,
-			]) mirror(squareNutHolderMirror[i]) translate([4.5,5,0]) cylinder(r=screw_clearance_radius(M3_cap_screw), h=8);
+			]) mirror(squareNutHolderMirror[i]) translate([4.5,5,0]) cylinder(r=screw_clearance_radius(M3_cap_screw)*1.2, h=8);
 		}
 
-		translate(coverFanHolesPos) union() {
-			fan_holes(fan40x11, poly = false, screws = true, h = 100);
-			fan_hole_positions(fan40x11, z = nut_square_thickness(M3_nut)-1.75) nut_trap(screw = M3_cap_screw, nut = M3_nut, depth = nut_square_thickness(M3_nut)/3, h = nut_square_thickness(M3_nut)/3);
-		}
+		translate(coverFanHolesPos) fan_holes(fan40x11, poly = false, screws = true, h = 100);
 	}
 }
 
